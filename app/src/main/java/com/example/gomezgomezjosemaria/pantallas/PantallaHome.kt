@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,10 +32,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.gomezgomezjosemaria.VM.ViewModel
 import com.example.gomezgomezjosemaria.View.JugadoresCard
+import com.example.gomezgomezjosemaria.model.Jugador
 
 @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    fun PantallaHome(
+    fun PantallaHome(jugador: Jugador,
         onViewJugadores: (id: String, nombre: String, numero: Double,nacionalidad: String,posicion:String) -> Unit,
         viewModel: ViewModel = viewModel()
     ) {
@@ -55,8 +58,6 @@ import com.example.gomezgomezjosemaria.View.JugadoresCard
         )
         Spacer(Modifier.height(11.dp))
 
-        LazyColumn {
-
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 elevation = CardDefaults.cardElevation(5.dp)
@@ -66,13 +67,14 @@ import com.example.gomezgomezjosemaria.View.JugadoresCard
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column(modifier = Modifier.weight(3f)) {
-                        Text(jugadores.nombre, style = MaterialTheme.typography.titleMedium)
+                        Text(jugador.nombre, style = MaterialTheme.typography.titleMedium)
                        // Int(jugadores.numero,style=MaterialTheme.typography.bodyMedium)
-                        Text(jugadores.nacionalidad, style = MaterialTheme.typography.bodyMedium)
-                        Text(jugadores.posicion, style = MaterialTheme.typography.bodyMedium)
+                        Text(jugador.nacionalidad, style = MaterialTheme.typography.bodyMedium)
+                        Text(jugador.posicion, style = MaterialTheme.typography.bodyMedium)
                     }
                 }
             }
+        Button(onClick = addJugador) { }
+
         }
     }
-}

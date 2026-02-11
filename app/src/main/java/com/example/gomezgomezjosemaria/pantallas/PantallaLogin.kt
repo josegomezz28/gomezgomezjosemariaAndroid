@@ -63,8 +63,7 @@ fun PantallaLogin(
 
         if (mensajeerror != null) {
             Text(
-                text = mensajeerror!!,
-                color = MaterialTheme.colorScheme.error
+                text = mensajeerror!!
             )
             Spacer(Modifier.height(10.dp))
         }

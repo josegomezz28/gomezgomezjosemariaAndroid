@@ -12,7 +12,7 @@ sealed class Routes: NavKey {
     data class Home(val email: String) : Routes()
 
     @Serializable
-    data class  Agregacion(val id: String, val nombre:String, val numero:Int, val nacionalidad:String,
+    data class  Agregar(val id: String, val nombre:String, val numero:Int, val nacionalidad:String,
                            val posicion: String)
 
 

@@ -54,7 +54,7 @@ import kotlinx.coroutines.flow.StateFlow
                 "nombre" to nombre,
                 "nacionalidad" to nacionalidad,
                 "numero" to numero,
-                "posicionn" to posicion
+                "posicion" to posicion
             )
 
             jugadoresCollection.add(data)
