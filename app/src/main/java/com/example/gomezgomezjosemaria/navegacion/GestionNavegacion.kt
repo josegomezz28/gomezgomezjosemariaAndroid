@@ -21,7 +21,6 @@ fun GestionNavegacion(auth: FirebaseAuth) {
             onBack = { pilaNavegacion.removeLastOrNull() },
             entryProvider = { route ->
                 when (route) {
-
                     Routes.Login -> NavEntry(route) {
                         PantallaLogin(
                             auth = auth,
@@ -31,6 +30,18 @@ fun GestionNavegacion(auth: FirebaseAuth) {
                             }
                         )
                     }
+                    is Routes.Home -> NavEntry(route) {
+                        PantallaHome(
+                            email = route.email,
+                            onLogout = {
+                                auth.signOut()
+                                pilaNavegacion.clear()
+                                pilaNavegacion.add(Routes.Login)
+                            },
 
-        )
+
+                        )
+                    }
+
+        )}
 }

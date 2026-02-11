@@ -12,17 +12,16 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.Image
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun PantallaLogin(
     auth: FirebaseAuth,
-    onLoginSuccess: (String) -> Unit,
-    onNavigateToRegister: () -> Unit
+    onLoginSuccess: (String) -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
     var cargando by remember { mutableStateOf(false) }
     var mensajeerror by remember { mutableStateOf<String?>(null) }
 
@@ -32,7 +31,10 @@ fun PantallaLogin(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+        Spacer(Modifier.height(18.dp))
+
         Text("Incia sesion", fontSize = 50.sp)
+
         Spacer(Modifier.height(18.dp))
 
         TextField(
